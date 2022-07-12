@@ -1,0 +1,7 @@
+<h1>This is the todos index.</h1>
+<p>The date is: <%= Date.today %> </p>
+<% Todo.all.each do |todo| %>
+<div>
+  <p> <%= todo.todo_text %> </p>
+</div>
+<% end %>
