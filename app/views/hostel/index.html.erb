@@ -1,0 +1,38 @@
+<br><br><br>
+<div class="HostelForm">
+  <%= form_with url: room_path do |form| %>
+  <div class="Form-Section">
+    <p><center class="FormInput-label">Which hostel do you want to book?</center></p>
+    <center>
+    <% hostel = Hostel.where(for: @current_user.gender) %>
+      <select name="hostel" class="FormInput-label">
+      <% hostel.each do |hostel| %>
+        <option value="<%= hostel.name %>"><%= hostel.name %></option>
+        <% end %>
+      </select>
+    </center>
+  </div>
+  <div class="Form-Section">
+    <p><center class="FormInput-label">On which floor do you want to live? (Each hostel has five floors.) </center></p>
+    <center><%= form.number_field :floor, in: 1..5, step: 1, class: "Form-Input" %></center>
+  </div>
+  <div class="Form-Section">
+    <p><center class="FormInput-label">How many room-mates do you want? (4, 3 or 1)</center></p>
+    <center>
+      <%= form.radio_button :roommates, '3' %> 3 <br>
+      <%= form.radio_button :roommates, '2' %> 2 <br>
+      <%= form.radio_button :roommates, '0' %> 0 <br>
+    </center>
+  </div>
+  <div class="Form-Section">
+    <p><center class="FormInput-label">Do you want an AC Room?</center></p>
+    <center>
+      <%= form.radio_button :ac, 'yes' %> Yes <br>
+      <%= form.radio_button :ac, 'No' %> No <br>
+    </center>
+  </div>
+  <div class="Form-Section">
+  <center><%= form.submit "Book", class: "Form-Submit" %></center>
+  </div>
+  <% end %>
+</div>

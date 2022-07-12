@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_181034) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_12_131858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hostels", force: :cascade do |t|
+    t.string "name"
+    t.bigint "floors"
+    t.bigint "four_seater"
+    t.bigint "three_seater"
+    t.bigint "two_seater"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "for"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.text "todo_text"
@@ -28,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_181034) do
     t.string "first_name"
     t.string "password_digest"
     t.string "last_name"
+    t.string "gender"
   end
 
 end

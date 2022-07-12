@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
+  skip_before_action :ensure_user_logged_in
   def index
     render plain: User.order(:id).map{ |user| user.info }.join("\n")
   end
 
   def create
-    User.create!(first_name: params[:first_name],
+    user = User.create!(first_name: params[:first_name],
       last_name: params[:last_name],
+      gender: params[:gender],
       email: params[:email],
       password: params[:password])
-      redirect_to "/"
+      session[:current_user_id] = user.id
+      redirect_to "/hostel/new"
   end
 
   def login
