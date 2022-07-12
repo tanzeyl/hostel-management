@@ -11,9 +11,12 @@
   </head>
 
   <body>
-  <% if @current_user %>
-    <p class="Salutation">Welcome <%= @current_user.first_name %> </p>
+  <div class="Salutation">
+    <% if @current_user %>
+      <p>Welcome <%= @current_user.first_name %></p>
+      <%= button_to " Sign Out!", destroy_session_path, method: "delete" %>
   <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>

@@ -7,10 +7,14 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to "/hostel/new"
-    else
-      render plain: "Incorrect"
+      redirect_to hostel_index_path
     end
+  end
+
+  def destroy
+    session[:current_user_id] = nil
+    @current_user = nil
+    redirect_to "/"
   end
 
 end
