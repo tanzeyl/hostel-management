@@ -1,30 +1,20 @@
 <center class="SignUp-Form">
   <h1 class="class="NewUsers-title"">Please chose a meal plan.</h1>
   <section class="UserNew">
-    <%= form_with url: users_path do |form| %>
+    <%= form_with url: meal_index_path do |form| %>
       <div class="Form-Section">
-        <p class="FormInput-label">First Name:</p>
-        <%= form.text_field :first_name, class: "Form-Input" %>
+        <p class="FormInput-label">Mark at which times you wish to eat from the hostel mess:</p>
+        <%= form.radio_button :breakfast, 'breakfast' %> Breakfast <br>
+        <%= form.radio_button :lunch, 'lunch' %> Lunch <br>
+        <%= form.radio_button :dinner, 'dinner' %> Dinner <br>
       </div>
       <div class="Form-Section">
-        <p class="FormInput-label">Last Name:</p>
-        <%= form.text_field :last_name, class: "Form-Input" %>
+        <p class="FormInput-label">Do you want the tiffin service?:</p>
+        <%= form.radio_button :tiffin, 'yes' %> Yes <br>
+        <%= form.radio_button :tiffin, 'no' %> No <br>
       </div>
       <div class="Form-Section">
-        <p class="FormInput-label FormRadio-adj">Gender:</p>
-         <%= form.radio_button :gender, 'male' %> Male <br>
-          <%= form.radio_button :gender, 'female' %> Female <br>
-      </div>
-      <div class="Form-Section">
-        <p class="FormInput-label">Email:</p>
-        <%= form.email_field :email, class: "Form-Input" %>
-      </div>
-      <div class="Form-Section">
-        <p class="FormInput-label">Password:</p>
-        <%= form.password_field :password, class: "Form-Input" %>
-      </div>
-      <div class="Form-Section">
-      <%= form.submit "Sign Up!", class: "Form-Submit" %>
+      <%= form.submit "Confirm", class: "Form-Submit" %>
       </div>
     <% end %>
   </section>
