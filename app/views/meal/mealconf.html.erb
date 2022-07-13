@@ -9,5 +9,8 @@
     <li>Tiffin service: <%= meal.tiffin %> </li>
     <li>Price: <%= meal.price %> </li>
   </ol>
-  <button class="ConfirmButton">Confirm and pay</button>
+  <div class="Buttons">
+    <button class="ConfirmButton">Confirm and pay</button>
+     <%= button_to " Change plan!", plan_change_path, method: "get", class: "ConfirmButton" %>
+  </div>
 </div>

@@ -25,6 +25,12 @@ class HostelController < ApplicationController
     if rooms != nil
       for room in rooms
         if room.number/100 == floor
+          if @current_user.room_id != nil
+            currentRoom = HostelRoom.find(@current_user.room_id)
+            currentRoom.available = true
+            currentRoom.studentname = nil
+            currentRoom.save!
+          end
           user = @current_user
           user.room_id = room.id
           user.save!
@@ -35,6 +41,9 @@ class HostelController < ApplicationController
           break
         end
       end
+    else
+      flash[:error] = "Selected room is not available"
+      redirect_to hostel_index_path
     end
     redirect_to booking_path
   end
@@ -43,12 +52,12 @@ class HostelController < ApplicationController
     render "booking"
   end
 
-  def showmeal
-    if @current_user.meal_id != nil
-      render "mealconf"
-    else
-      render "meal"
-    end
+  def changeRoom
+    render "index"
+  end
+
+  def show
+    render "index"
   end
 
 end

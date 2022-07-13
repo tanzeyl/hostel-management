@@ -35,10 +35,20 @@ class MealController < ApplicationController
     user = @current_user
     user.meal_id = new_meal.id
     user.save!
-    redirect_to new_meal_path
+    flash[:error] = "Meal plan changed successfully."
+    redirect_to meals_path
   end
 
-  def new
-    render "mealconf"
+  def change
+    render "meal"
   end
+
+  def showmeal
+    if @current_user.meal_id != nil
+      render "mealconf"
+    else
+      render "meal"
+    end
+  end
+
 end

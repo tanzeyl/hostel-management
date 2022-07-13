@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password])
       session[:current_user_id] = user.id
-      redirect_to "/hostel/new"
+      redirect_to hostel_index_path
   end
 
   def login
