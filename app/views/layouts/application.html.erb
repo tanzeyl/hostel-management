@@ -12,6 +12,7 @@
 
   <body>
   <div class="Salutation">
+
     <% if @current_user %>
       <p>Welcome <%= @current_user.first_name %></p>
       <%= button_to " Sign Out!", destroy_session_path, method: "delete" %>

@@ -1,6 +1,10 @@
 class HostelController < ApplicationController
   def new
-    render "index"
+    if @current_user.room_id != nil
+      render "booking"
+    else
+      render "index"
+    end
   end
 
   def index
@@ -21,7 +25,11 @@ class HostelController < ApplicationController
     if rooms != nil
       for room in rooms
         if room.number/100 == floor
+          user = @current_user
+          user.room_id = room.id
+          user.save!
           room.studentname = @current_user.first_name + " " + @current_user.last_name
+          room.available = false
           room.save!
           session[:room_id] = room.id
           break
@@ -36,7 +44,11 @@ class HostelController < ApplicationController
   end
 
   def showmeal
-    render "meal"
+    if @current_user.meal_id != nil
+      render "mealconf"
+    else
+      render "meal"
+    end
   end
 
 end

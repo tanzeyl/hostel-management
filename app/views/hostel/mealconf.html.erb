@@ -1,0 +1,13 @@
+<br><br><br><br><br><br>
+<div class="BookingConfirmed">
+  <% meal = Meal.find(@current_user.meal_id) %>
+  <p>Following are the deatils of the booked plan:</p>
+  <ol>
+    <li>Breakfast: <%= meal.breakfast %> </li>
+    <li>Lunch: <%= meal.lunch %> </li>
+    <li>Dinner: <%= meal.dinner %> </li>
+    <li>Tiffin service: <%= meal.tiffin %> </li>
+    <li>Price: <%= meal.price %> </li>
+  </ol>
+  <button class="ConfirmButton">Confirm and pay</button>
+</div>
