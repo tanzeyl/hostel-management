@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   get "cancel_plan/:id" => "admin#cancelPlan"
   get "add-hostel" => "admin#hostel", as: :add_hostel
   post "add-hostel" => "admin#addHostel", as: :add_new_hostel
+  get "add-admin" => "admin#admin", as: :add_admin
+  post "add-admin" => "admin#addAdmin", as: :add_new_admin
+  get "promote/:id" => "admin#promote"
 end

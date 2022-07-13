@@ -45,12 +45,16 @@ class AdminController < ApplicationController
    redirect_to hostel_index_path
   end
 
+  def admin
+    render "admin"
+  end
+
+  def promote
+    user = User.find(params[:id])
+    user.role = "admin"
+    user.save!
+    flash[:error] = "#{user.first_name} has been promoted as admin."
+    redirect_to hostel_index_path
+  end
+
 end
-# t.bigint "seater"
-# t.boolean "ac"
-# t.bigint "number"
-# t.datetime "created_at", null: false
-# t.datetime "updated_at", null: false
-# t.boolean "available"
-# t.bigint "price"
-# t.bigint "occupants"

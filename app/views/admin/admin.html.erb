@@ -1,0 +1,23 @@
+<% users = User.all %>
+<table class="Table">
+  <tr>
+    <th>Student Name</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Action</th>
+  </tr>
+  <% for user in users %> <% if user.role != "admin" %>
+  <tr>
+    <td><center><%= user.first_name %>&nbsp<%= user.last_name %></center></td>
+    <td><center><%= user.email %></center></td>
+    <td><center><%= user.gender %></center></td>
+    <td>
+      <center>
+      <%= form_with url: "promote/#{user.id}", method: "get"  do |form| %>
+        <%= form.submit "Promote to admin", class: "ConfirmButton" %>
+      <% end %>
+      </center>
+    </td>
+  </tr>
+  <% end %> <% end %>
+</table>

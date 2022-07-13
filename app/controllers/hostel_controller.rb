@@ -48,6 +48,7 @@ class HostelController < ApplicationController
       flash[:error] = "Selected room is not available"
       redirect_to hostel_index_path
     end
+    flash[:error] = "Room booked successfully."
     redirect_to booking_path
   end
 
