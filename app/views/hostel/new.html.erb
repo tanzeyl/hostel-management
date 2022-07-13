@@ -1,7 +1,15 @@
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<% if @current_user.role == "admin" %>
+  <p class="Flash">There are a total of <%= User.count %>&nbsp users out of which <%= HostelRoom.where(available: false).count %>
+  &nbspare living in hostel and <%= Meal.count %>&nbsphave purchased meal plans.</p>
+<br><br><br><br><br><br>
+<% end %>
 <div>
   <section class="HostelOptions">
     <h3 class="OptionsHeading">What do you want to do?</h3>
+    <% if @current_user.role == "admin" %>
+      <p><%= link_to "Manage rooms.", manage_rooms_path, class: "OptionsLink" %></p>
+      <p><%= link_to "Manage meals.", manage_meals_path, class: "OptionsLink" %></p>
+    <% end %>
     <p><%= link_to " Book a hostel room.", new_hostel_path, class: "OptionsLink" %></p>
     <p><%= link_to " Purchase a monthly meal course..", meals_path, class: "OptionsLink" %></p>
   </section>

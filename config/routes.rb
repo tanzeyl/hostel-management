@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :meal
   resources :admin
   post "users/login", to: "users#login"
-  get "/hostel" => "home#index", as: :dash
+  get "/" => "home#index"
+  get "/hostel" => "hostel#index", as: :dash
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
   post "/book-room" => "hostel#create", as: :room
@@ -15,4 +16,8 @@ Rails.application.routes.draw do
   get "buy-meal" => "meal#showmeal", as: :meals
   get "change-room" => "hostel#changeRoom", as: :room_change
   get "change-plan" => "meal#change", as: :plan_change
+  get "manage-rooms" => "admin#rooms", as: :manage_rooms
+  get "manage-meals" => "admin#meals", as: :manage_meals
+  get "cancel_booking/:id" => "admin#cancelRoom"
+  get "cancel_plan/:id" => "admin#cancelPlan"
 end

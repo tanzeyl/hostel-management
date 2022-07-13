@@ -1,0 +1,24 @@
+<% users = User.all %>
+<table class="Table">
+  <tr>
+    <th>Student Name</th>
+    <th>Hostel</th>
+    <th>Room number</th>
+    <th>Action</th>
+  </tr>
+  <% for user in users %> <% if user.room_id != nil && user.role != "admin" %>
+  <tr>
+    <td><center><%= user.first_name %>&nbsp<%= user.last_name %></center></td>
+    <% room = HostelRoom.find(user.room_id) %>
+    <td><center><%= room.hostelname %></center></td>
+    <td><center><%= room.number %></center></td>
+    <td>
+      <center>
+      <%= form_with url: "cancel_booking/#{user.id}", method: "get"  do |form| %>
+        <%= form.submit "Cancel Booking", class: "ConfirmButton" %>
+      <% end %>
+      </center>
+    </td>
+  </tr>
+  <% end %> <% end %>
+</table>

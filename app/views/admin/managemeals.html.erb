@@ -1,0 +1,30 @@
+<% users = User.all %>
+<table class="Table">
+  <tr>
+    <th>Student Name</th>
+    <th>Breakfast</th>
+    <th>Lunch</th>
+    <th>Dinner</th>
+    <th>Tiffin Service</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+  <% for user in users %> <% if user.meal_id != nil && user.role != "admin" %>
+  <tr>
+    <td><center><%= user.first_name %>&nbsp<%= user.last_name %></center></td>
+    <% meal = Meal.find(user.meal_id) %>
+    <td><center><%= meal.breakfast %></center></td>
+    <td><center><%= meal.lunch %></center></td>
+    <td><center><%= meal.dinner %></center></td>
+    <td><center><%= meal.tiffin %></center></td>
+    <td><center>Rs.&nbsp<%= meal.price %></center></td>
+    <td>
+      <center>
+      <%= form_with url: "cancel_plan/#{user.id}", method: "get"  do |form| %>
+        <%= form.submit "Cancel Plan", class: "ConfirmButton" %>
+      <% end %>
+      </center>
+    </td>
+  </tr>
+  <% end %> <% end %>
+</table>
