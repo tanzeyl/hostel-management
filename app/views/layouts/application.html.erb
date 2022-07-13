@@ -16,6 +16,7 @@
       <div class="NavDash">
         <p>Welcome <%= @current_user.first_name %></p>&nbsp&nbsp&nbsp
         <%= button_to "Dashboard", dash_path, method: "get", class: "NavButtons" %>
+        <%= button_to "Change Password", password_path, method: "get", class: "NavButtons" %>
       </div>
       <%= button_to " Sign Out!", destroy_session_path, method: "delete", class: "NavButtons" %>
     </div>

@@ -5,13 +5,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(first_name: params[:first_name],
+    user = User.new(first_name: params[:first_name],
       last_name: params[:last_name],
       gender: params[:gender],
       email: params[:email],
+      role: "student",
       password: params[:password])
-      session[:current_user_id] = user.id
-      redirect_to hostel_index_path
+      if user.save
+        session[:current_user_id] = user.id
+        redirect_to hostel_index_path
+      else
+        flash[:error] = user.errors.full_messages.join(", ")
+        redirect_to new_user_path
+      end
   end
 
   def login
@@ -27,6 +33,24 @@ class UsersController < ApplicationController
 
   def new
     render "users/new"
+  end
+
+  def changeP
+    render "password"
+  end
+
+  def changePassword
+    newPass = params[:new_p]
+    retype = params[:retype]
+    if newPass != retype
+      flash[:error] = "Passwords don't match."
+      redirect_to password_path
+    else
+      @current_user.password_digest = newPass
+      @current_user.save!
+      flash[:error] = "Password successfully changed."
+      redirect_to hostel_index_path
+    end
   end
 
 end

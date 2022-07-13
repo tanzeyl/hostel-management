@@ -1,8 +1,4 @@
-<% if @current_user.role == "admin" %>
-  <p class="Flash">There are a total of <%= User.count %>&nbsp users out of which <%= HostelRoom.where(available: false).count %>
-  &nbspare living in hostel and <%= Meal.count %>&nbsphave purchased meal plans.</p>
 <br><br><br><br><br><br>
-<% end %>
 <div>
   <section class="HostelOptions">
     <h3 class="OptionsHeading">What do you want to do?</h3>

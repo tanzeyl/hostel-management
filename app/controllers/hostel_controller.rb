@@ -35,7 +35,10 @@ class HostelController < ApplicationController
           user.room_id = room.id
           user.save!
           room.studentname = @current_user.first_name + " " + @current_user.last_name
-          room.available = false
+          room.occupants += 1
+          if room.seater == room.occupants
+            room.available = false
+          end
           room.save!
           session[:room_id] = room.id
           break

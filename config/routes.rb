@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get "manage-meals" => "admin#meals", as: :manage_meals
   get "cancel_booking/:id" => "admin#cancelRoom"
   get "cancel_plan/:id" => "admin#cancelPlan"
+  get "change-password" => "users#changeP", as: :password
+  post "change" => "users#changePassword", as: :change_password
 end
