@@ -35,22 +35,4 @@ class UsersController < ApplicationController
     render "users/new"
   end
 
-  def changeP
-    render "password"
-  end
-
-  def changePassword
-    newPass = params[:new_p]
-    retype = params[:retype]
-    if newPass != retype
-      flash[:error] = "Passwords don't match."
-      redirect_to password_path
-    else
-      @current_user.password_digest = newPass
-      @current_user.save!
-      flash[:error] = "Password successfully changed."
-      redirect_to hostel_index_path
-    end
-  end
-
 end

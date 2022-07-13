@@ -1,0 +1,35 @@
+<center class="SignUp-Form">
+  <h1 class="class="NewUsers-title"">Please enter these details.</h1>
+  <section class="UserNew">
+    <%= form_with url: add_new_hostel_path do |form| %>
+      <div class="Form-Section">
+        <p class="FormInput-label">Name of the hostel:</p>
+        <%= form.text_field :name, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label">Number of Floors:</p>
+        <%= form.text_field :floors, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label FormRadio-adj">Number of 4 seater rooms:</p>
+         <%= form.text_field :four_seater, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label FormRadio-adj">Number of 3 seater rooms:</p>
+         <%= form.text_field :three_seater, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label FormRadio-adj">Number of single rooms:</p>
+         <%= form.text_field :one_seater, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label">Who is this hostel for?:</p>
+         <%= form.radio_button :gender, 'male' %> Boys <br>
+          <%= form.radio_button :gender, 'female' %> Girls <br>
+      </div>
+      <div class="Form-Section">
+      <%= form.submit "Create hostel", class: "Form-Submit" %>
+      </div>
+    <% end %>
+  </section>
+</center>
