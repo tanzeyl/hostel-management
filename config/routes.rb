@@ -25,4 +25,11 @@ Rails.application.routes.draw do
   get "add-admin" => "admin#admin", as: :add_admin
   post "add-admin" => "admin#addAdmin", as: :add_new_admin
   get "promote/:id" => "admin#promote"
+  get "kitchen" => "admin#kitchen", as: :kitchen
+  get "add_item/:id" => "admin#add_item"
+  get "update_price/:id" => "admin#price"
+  get "new_item" => "admin#new_item", as: :add_new
+  get "update_price" => "admin#price", as: :update_price
+  post "new_item" => "admin#add_new_item", as: :add_new_item
+  get "delete_item/:id" => "admin#delete_item", as: :delete_item
 end

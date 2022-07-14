@@ -1,0 +1,23 @@
+<br><br><br><br><br>
+<center class="SignUp-Form">
+  <h1 class="class="NewUsers-title"">Please enter these details.</h1>
+  <section class="UserNew">
+    <%= form_with url: add_new_item_path do |form| %>
+      <div class="Form-Section">
+        <p class="FormInput-label">Item name:</p>
+        <%= form.text_field :name, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label">Initial Quantity:</p>
+        <%= form.text_field :quan, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+        <p class="FormInput-label">Price per unit:</p>
+        <%= form.text_field :price, class: "Form-Input" %>
+      </div>
+      <div class="Form-Section">
+      <%= form.submit "Add Item!", class: "Form-Submit" %>
+      </div>
+    <% end %>
+  </section>
+</center>

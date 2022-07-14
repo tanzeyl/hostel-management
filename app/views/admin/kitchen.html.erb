@@ -1,0 +1,52 @@
+<% items = Kitchen.all %>
+<% i = 1 %>
+<div>
+  <table class="Table">
+  <tr>
+    <th>Serial Number</th>
+    <th>Item</th>
+    <th>Remaining Quantity</th>
+    <th>Price</th>
+    <th>Increase Quantity</th>
+    <th>Update Price</th>
+    <th>Delete item</th>
+  </tr>
+  <% for item in items %>
+  <tr>
+    <td><center><%= i %></center></td>
+    <% i+=1 %>
+    <td><center><%= item.item %></center></td>
+    <td><center><%= item.quantity %></center></td>
+    <td><center>Rs.&nbsp<%= item.price %></center></td>
+    <td>
+      <center>
+      <%= form_with url: "add_item/#{item.id}", method: "get"  do |form| %>
+        <%= form.text_field :quantity, placeholder: "Amount to add",class: "Form-Input" %>
+        <%= form.submit "Add", class: "TableButton ConfirmButton" %>
+      <% end %>
+      </center>
+    </td>
+    <td>
+      <center>
+      <%= form_with url: "update_price/#{item.id}", method: "get"  do |form| %>
+        <%= form.text_field :price, placeholder: "New Price",class: "Form-Input" %>
+        <%= form.submit "Update", class: "TableButton ConfirmButton" %>
+      <% end %>
+      </center>
+    </td>
+    <td>
+      <center>
+        <%= form_with url: "delete_item/#{item.id}", method: "get"  do |form| %>
+          <%= form.submit "Delete", class: "DeleteButton" %>
+        <% end %>
+      </center>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<div class="KitchenButtons">
+  <center>
+    <%= button_to "Add new items", add_new_path, method: "get", class: "NavButtons" %>
+  </center>
+</div>
+</div>

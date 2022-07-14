@@ -57,4 +57,38 @@ class AdminController < ApplicationController
     redirect_to hostel_index_path
   end
 
+  def kitchen
+    render "kitchen"
+  end
+
+  def add_item
+    item = Kitchen.find(params[:id])
+    item.quantity += params[:quantity].to_i
+    item.save!
+  end
+
+  def new_item
+    render "new_item"
+  end
+
+  def add_new_item
+    Kitchen.create!(item: params[:name], quantity: params[:quan], price: params[:price])
+    flash[:error] = "Item successfully added."
+    redirect_to kitchen_path
+  end
+
+  def delete_item
+    Kitchen.find(params[:id]).destroy
+    flash[:error] = "Item successfully deleted."
+    redirect_to kitchen_path
+  end
+
+  def price
+    item = Kitchen.find(params[:id])
+    item.price = params[:price]
+    item.save!
+    flash[:error] = "Price of #{item.item} updated successfully."
+    redirect_to kitchen_path
+  end
+
 end
