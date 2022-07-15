@@ -1,24 +1,10 @@
-# README
+## This is my fourth semester mini-project. <br>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### It is an Hostel Mess Management based on Ruby on Rails.
 
-Things you may want to cover:
+To run this project, make sure you have Ruby installed on your machine along with Ruby on Rails, PostgreSQL and Linux. Once you have the listed items, follow these steps.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<ol>
+  <li>Clone this repository.</li>
+  <li></li>
+</ol>

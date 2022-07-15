@@ -2,27 +2,58 @@
 <html>
   <head>
     <title>Graphic Era</title>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <% if @current_user %>
+  <body class="Body">
+  <nav class="navbar navbar-expand-md navbar-light NavbarTop">
+  <% if @current_user %>
     <div class="Salutation">
+      <%= link_to "Graphic Era", dash_path, class: "navbar-brand NavTitle" %>
       <div class="NavDash">
-        <p>Welcome <%= @current_user.first_name %></p>&nbsp&nbsp&nbsp
-        <%= button_to "Dashboard", dash_path, method: "get", class: "NavButtons" %>
+        <p class="Welcome">Welcome <%= @current_user.first_name %></p>&nbsp&nbsp&nbsp
+        <%= button_to " Sign Out!", destroy_session_path, method: "delete", class: "NavButtons" %>
       </div>
-      <%= button_to " Sign Out!", destroy_session_path, method: "delete", class: "NavButtons" %>
     </div>
+  <% else %>
+    <%= link_to "Graphic Era", "/", class: "navbar-brand NavTitle" %>
   <% end %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto navbar-right NavList">
+      <li class="nav-item">
+      </li>
+      <li class="nav-item NavItem">
+      </li>
+    </ul>
+  </div>
+  </nav>
   <% if flash[:error] %>
     <p><center class="Flash"><%= flash[:error] %></center></p>
   <% end %>
     <%= yield %>
+     <footer class="nav-color navbar-fixed-bottom">
+	<div class="container">
+		<center>
+			<p class="FooterText">Copyright © Graphic Era Deemed To Be University. All Rights Reserved | Contact Us: +91-9870661375</p>
+		</center>
+	</div>
+</footer>
   </body>
 </html>

@@ -1,15 +1,16 @@
-<br><br><br><br><br><br>
 <div>
   <section class="HostelOptions">
     <h3 class="OptionsHeading">What do you want to do?</h3>
+    <ol>
     <% if @current_user.role == "admin" %>
-      <p><%= link_to "Manage rooms.", manage_rooms_path, class: "OptionsLink" %></p>
-      <p><%= link_to "Manage meals.", manage_meals_path, class: "OptionsLink" %></p>
-      <p><%= link_to "Add a new hostel.", add_hostel_path, class: "OptionsLink" %></p>
-      <p><%= link_to "Add a new admin.", add_admin_path, class: "OptionsLink" %></p>
-      <p><%= link_to "Manage kitchen materials.", kitchen_path, class: "OptionsLink" %></p>
+      <li><p><%= link_to "Manage meals. 🍴", manage_meals_path, class: "OptionsLink" %></p></li>
+      <li><p><%= link_to "Add a new hostel. 🏫", add_hostel_path, class: "OptionsLink" %></p></li>
+      <li><p><%= link_to "Add a new admin. 👨🏾", add_admin_path, class: "OptionsLink" %></p></li>
+      <li><p><%= link_to "Manage kitchen materials. 🔪", kitchen_path, class: "OptionsLink" %></p></li>
     <% end %>
-    <p><%= link_to " Book a hostel room.", new_hostel_path, class: "OptionsLink" %></p>
-    <p><%= link_to " Purchase a monthly meal course..", meals_path, class: "OptionsLink" %></p>
+    <li><p><%= link_to " Book a hostel room. 📃", new_hostel_path, class: "OptionsLink" %></p></li>
+    <li><p><%= link_to " Purchase a monthly meal course. 🍚", meals_path, class: "OptionsLink" %></p></li>
+    </ol>
   </section>
 </div>
+<br><br><br><br><br><br><br>

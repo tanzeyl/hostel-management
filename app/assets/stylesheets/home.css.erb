@@ -1,7 +1,8 @@
-body {
+.Body {
   background-image: url(<%= asset_data_uri 'image.jpg' %>);
   background-size: cover;
   background-repeat: no-repeat;
+  max-height: 100%;
 }
 
 .HomeTitle {
@@ -9,6 +10,35 @@ body {
   margin-bottom: 30px;
   letter-spacing: 2px;
   font-weight: 600;
+  max-height: 100%;
+}
+
+#banner-img {
+	padding-top: 90px;
+ 	padding-bottom: 50px;
+ 	text-align: center;
+ 	color: rgba(0, 0, 0, 0.6);
+ 	height: 700px;
+  margin-top: 5%;
+
+}
+
+#banner-content {
+	position: relative;
+	padding-top: 6%;
+	padding-bottom: 6%;
+  margin: auto;
+  justify-content: center;
+  border-radius: 38%;
+	background-image: url(<%= asset_data_uri 'image7.jpg' %>);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Cinzel', serif;
+	max-width: 660px;
+}
+
+.FooterText {
+  color: white;
 }
 
 .HomeAuthenticate {
@@ -16,6 +46,58 @@ body {
   margin-bottom: 20px;
   font-style: inherit;
   font-weight: 600;
+}
+
+.NavTitle {
+  font-family: 'Fuggles';
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.NavTitle:hover {
+  color: lightgray;
+}
+
+.NavbarTop {
+    background-image: url(<%= asset_data_uri 'image3.jpg' %>);
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 100%;
+}
+
+.NavList {
+    color: black;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+footer {
+  font-size: 16px;
+	background-color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  margin: auto;
+  padding-top: 2%;
+	width: 100%
+}
+
+.NavItem {
+  color: black;
+  padding-top: 5px;
+}
+
+.SignOutLink {
+  float: right;
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.btn:hover {
+  background: #154d70;
+  text-decoration: none;
 }
 
 .HomeLink {
@@ -50,70 +132,12 @@ body {
   margin-top: 5%;
 }
 
-#banner-content {
-	position: relative;
-	padding-top: 6%;
-	padding-bottom: 6%;
-  margin: auto;
-  justify-content: center;
-  border-radius: 4%;
-	background-color: rgba(0, 0, 0, 0.6);
-	max-width: 660px;
-}
-
-.NavTitle {
-    font-family: 'Fuggles';
-    font-size: 30px;
-    color: white;
-    font-weight: 700;
-}
-
-.NavbarTop {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.NavList {
-    color: black;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-footer {
-  font-size: 16px;
-	background-color: rgba(0, 0, 0, 0.6);
-	color: white;
-  font-weight: 600;
-  margin: auto;
-  padding-top: 2%;
-	width: 100%
-}
-
-.NavItem {
-  color: black;
-  padding-top: 5px;
-}
-
-.SignOutLink {
-  float: right;
-  margin-right: 10px;
-  font-size: 25px;
-}
-
-.btn:hover {
-  background: #154d70;
-  text-decoration: none;
-}
-
 .PageTitle {
   margin-left: 10px;
 }
 
 .Salutation {
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
   font-size: 20px;
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,14 +162,19 @@ footer {
 .NavDash {
   display: flex;
   align-items: center;
+  color: white;
+  margin-top: 20px;
 }
 
 .NavButtons {
-  nackground-color: lightgray;
+  background-color: lightgray;
   font-size: 20px;
   border: transparent;
   padding: 10px;
   margin-left: 4px;
+  margin-right: 8px;
+  margin-top: 5px;
+  color: black;
 }
 
 footer {
@@ -160,4 +189,8 @@ footer {
   font-size: 30px;
   align-items: center;
   padding-bottom: 40px;
+}
+
+.Welcome {
+  margin-top: 5px;
 }

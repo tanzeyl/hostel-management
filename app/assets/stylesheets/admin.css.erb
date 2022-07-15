@@ -1,14 +1,19 @@
 .Table {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-image: url(<%= asset_data_uri 'image3.jpg' %>);
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 100%;
   min-width: 1200px;
   max-width: 100%;
   margin: 0 auto;
   color: white;
-  font-size: 30px;
+  font-size: 25px;
+  font-family: 'Cormorant Garamond', serif;
+  border-radius: 4px;
 }
 
 .Table table, th, td {
-  border: 1px solid black;
+  border: 3px solid white;
   border-collapse: collapse;
   padding: 10px;
 }
@@ -30,4 +35,11 @@
 
 .TableButton {
   margin-top: 2%;
+}
+
+.NewHostelBG {
+  background-image: url(<%= asset_data_uri 'image4.jpg' %>);
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: 100%;
 }
