@@ -12,4 +12,4 @@ To run this project, make sure you have Ruby installed on your machine along wit
   <li>Run <i>rails server</i> and follow the link that pops up.</li>
 </ol>
 <br>
-<h1><bold>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThank You</bold></h1>
+<h1><bold>Thank You</bold></h1>
