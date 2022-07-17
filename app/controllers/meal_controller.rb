@@ -15,7 +15,7 @@ class MealController < ApplicationController
     if dinner != nil
       price += 2000
     end
-    if tiffin != nil
+    if tiffin == "yes"
       price += 500
     end
     b = false

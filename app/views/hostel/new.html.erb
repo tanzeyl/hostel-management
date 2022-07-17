@@ -3,6 +3,7 @@
     <h3 class="OptionsHeading">What do you want to do?</h3>
     <ol>
     <% if @current_user.role == "admin" %>
+      <li><p><%= link_to "Manage rooms.", manage_rooms_path, class: "OptionsLink" %></p></li>
       <li><p><%= link_to "Manage meals. 🍴", manage_meals_path, class: "OptionsLink" %></p></li>
       <li><p><%= link_to "Add a new hostel. 🏫", add_hostel_path, class: "OptionsLink" %></p></li>
       <li><p><%= link_to "Add a new admin. 👨🏾", add_admin_path, class: "OptionsLink" %></p></li>

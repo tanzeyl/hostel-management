@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
+      session[:room_id] = user.room_id
+      session[:meal_id] = user.meal_id
       redirect_to hostel_index_path
     else
       flash[:error] = "Your login attempt was not successful. Please try again."
